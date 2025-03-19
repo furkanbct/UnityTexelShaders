@@ -2,9 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Editor
-{
-    public class TexelLitShaderGUI : BaseShaderGUI
+public class TexelLitShaderGUI : BaseShaderGUI
 {
         // Properties
         private TexelLitGUI.TexelLitProperties _texelLitProperties;
@@ -52,7 +50,7 @@ namespace Editor
             if (EditorGUI.EndChangeCheck())
             {
                 foreach (var obj in blendModeProp.targets)
-                    MaterialChanged((Material)obj);
+                    ValidateMaterial((Material)obj);
             }
             base.DrawSurfaceOptions(material);
         }
@@ -76,7 +74,7 @@ namespace Editor
                 materialEditor.ShaderProperty(_texelLitProperties.reflections, TexelLitGUI.Styles.ReflectionsText);
                 if(EditorGUI.EndChangeCheck())
                 {
-                    MaterialChanged(material);
+                    ValidateMaterial(material);
                 }
             }
 
@@ -135,7 +133,6 @@ namespace Editor
                     material.SetTexture(MetallicSpecGlossMap, texture);
             }
 
-            MaterialChanged(material);
+            ValidateMaterial(material);
         }
     }
-}

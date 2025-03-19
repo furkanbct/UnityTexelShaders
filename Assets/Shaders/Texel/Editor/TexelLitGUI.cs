@@ -2,9 +2,7 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 
-namespace Editor
-{
-    public static class TexelLitGUI
+public static class TexelLitGUI
     {
         private static readonly int Surface = Shader.PropertyToID("_Surface");
         private static readonly int Mode = Shader.PropertyToID("_WorkflowMode");
@@ -243,4 +241,3 @@ namespace Editor
             }
         }
     }
-}
